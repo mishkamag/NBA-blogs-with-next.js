@@ -1,6 +1,9 @@
 import Link from "next/link";
 
 const getBlogs = async () => {
+  //just for show spinner
+  await new Promise((res) => setTimeout(res, 3000));
+
   const res = await fetch("http://localhost:4000/blogs", {
     next: {
       revalidate: 0,
@@ -11,7 +14,6 @@ const getBlogs = async () => {
 
 const BlogList = async () => {
   const blogs = await getBlogs();
-  console.log(blogs);
   return (
     <>
       {blogs.map((blog) => (

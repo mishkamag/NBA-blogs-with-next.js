@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 const getBlog = async (id) => {
   const res = await fetch(`http://localhost:4000/blogs/${id}`, {
     next: {
@@ -6,7 +8,7 @@ const getBlog = async (id) => {
   });
 
   if (!res.ok) {
-    throw new Error(`Error fetching blog: ${res.statusText}`);
+    notFound();
   }
   return res.json();
 };

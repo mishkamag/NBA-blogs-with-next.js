@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const getBlogs = async () => {
   const res = await fetch("http://localhost:4000/blogs", {
     next: {
@@ -13,12 +15,14 @@ const BlogList = async () => {
   return (
     <>
       {blogs.map((blog) => (
-        <div className="card my-5" key={blog.id}>
-          <h3>{blog.title}</h3>
-          <p>{blog.body.slice(0, 205)}...</p>
-          <div className={`pill ${blog.priority}`}>
-            {blog.priority} priority
-          </div>
+        <div className="card my-5 hover:hover:shadow-lg" key={blog.id}>
+          <Link href={`blogs/${blog.id}`}>
+            <h3>{blog.title}</h3>
+            <p>{blog.body.slice(0, 205)}...</p>
+            <div className={`pill ${blog.priority}`}>
+              {blog.priority} priority
+            </div>
+          </Link>
         </div>
       ))}
       {blogs.length === 0 && <p className="text-centre">There are no blogs</p>}

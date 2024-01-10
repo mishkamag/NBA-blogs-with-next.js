@@ -14,7 +14,7 @@ export default function Home() {
       </p>
 
       <div className="flex justify-center my-8">
-        <Link href="/blog">
+        <Link href="/blogs">
           <button className="btn-primary">View Blogs</button>
         </Link>
       </div>

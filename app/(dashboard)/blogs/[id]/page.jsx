@@ -1,5 +1,16 @@
 import { notFound } from "next/navigation";
 
+export const generateMetadata = async ({ params }) => {
+  const id = params.id;
+
+  const response = await fetch(`http://localhost:4000/blogs/${id}`);
+  const blog = await response.json();
+
+  return {
+    title: `NBA Helpdesk | ${blog.title}`,
+  };
+};
+
 const getBlog = async (id) => {
   const res = await fetch(`http://localhost:4000/blogs/${id}`, {
     next: {

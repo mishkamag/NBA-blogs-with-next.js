@@ -10,7 +10,9 @@ const NavBar = ({ user }) => {
       <Link href="/">
         <Image src={Logo} alt="Nba logo" width={70} quality={100} />
       </Link>
-      <h1>Nba World</h1>
+      <Link className="text-primary" href="/blogs/create">
+        Create Blog
+      </Link>
       <Link href="/">Go Home</Link>
       <Link href="/blogs" className="mr-auto">
         Go Blogs
